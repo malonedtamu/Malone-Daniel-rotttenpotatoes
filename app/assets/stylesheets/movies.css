@@ -1,0 +1,77 @@
+/* Basic reset*/
+html, body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    line-height: 1.5;
+    color: #222;
+    background: #fff;
+    margin: 0;
+    padding: 12px;
+}
+
+h1 { margin: 10px 0 12px; letter-spacing: 0.2px; }
+
+/* links */
+a { color: #0b5cab; text-decoration: none; }
+a:hover, a:focus { text-decoration: underline; outline: none; }
+
+/* movie index table */
+table.movies {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 16px;
+    border: 1px solid #e3e3e3;
+    border-radius: 6px;
+    overflow: hidden;
+}
+table.movies th, table.movies td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #eaeaea;
+    text-align: left;
+    vertical-align: top;
+}
+table.movies thead th { background: #f7f7f7; }
+table.movies tfoot td { color: #666; font-size: 0.95rem; }
+
+/*Sorted header colors */
+table.movies th.sorted-asc  { background: #e8f5e9; } /* ascending: light green */
+table.movies th.sorted-desc { background: #e3f2fd; } /* descending: light blue */
+
+/* Active column highlight */
+table.movies td.hl-col { background: #fafafa; }
+
+/* forms for new/edit */
+form label {
+    display: block;
+    font-weight: 600;
+    margin: 10px 0 6px;
+}
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    padding: 10px 12px;
+    border: 1px solid #cfcfcf;
+    border-radius: 6px;
+    background: #fff;
+    box-sizing: border-box;
+}
+textarea { min-height: 120px; }
+
+/* Buttons*/
+input[type="submit"],
+button,
+.button {
+    display: inline-block;
+    padding: 9px 14px;
+    border-radius: 6px;
+    background: #333;
+    color: #fff;
+    border: 1px solid #333;
+    cursor: pointer;
+}
+input[type="submit"]:hover,
+button:hover,
+.button:hover { background: #111; }

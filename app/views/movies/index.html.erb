@@ -4,13 +4,39 @@
 
 <h1>Movies</h1>
 
-<div id="movies">
-  <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to "Show this movie", movie %>
-    </p>
-  <% end %>
-</div>
+<table class="movies">
+  <thead>
+  <tr>
+    <th>
+      <%= link_to "Title#{@current_sort=='title' ? (@current_direction=='asc' ? ' ▲' : ' ▼') : ''}",
+                  movies_path(sort: 'title', direction: (@current_sort=='title' && @current_direction=='asc') ? 'desc' : 'asc') %>
+    </th>
+    <th>
+      <%= link_to "Rating#{@current_sort=='rating' ? (@current_direction=='asc' ? ' ▲' : ' ▼') : ''}",
+                  movies_path(sort: 'rating', direction: (@current_sort=='rating' && @current_direction=='asc') ? 'desc' : 'asc') %>
+    </th>
+    <th>
+      <%= link_to "Release date#{@current_sort=='release_date' ? (@current_direction=='asc' ? ' ▲' : ' ▼') : ''}",
+                  movies_path(sort: 'release_date', direction: (@current_sort=='release_date' && @current_direction=='asc') ? 'desc' : 'asc') %>
+    </th>
+  </tr>
+  </thead>
 
-<%= link_to "New movie", new_movie_path %>
+  <tbody>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td><%= movie.title %></td>
+      <td><%= movie.rating %></td>
+      <td><%= movie.release_date&.to_date %></td>
+    </tr>
+  <% end %>
+  </tbody>
+
+  <tfoot>
+  <tr>
+    <td colspan="3">Total movies: <%= @movies.size %></td>
+  </tr>
+  </tfoot>
+</table>
+
+<p><%= link_to "New movie", new_movie_path %></p>
